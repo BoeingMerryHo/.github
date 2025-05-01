@@ -125,6 +125,9 @@ MVP 개발 (04.03 ~ 04.17 - 2주)
 ### :memo: 티켓 예매 Flow
 - 좌석 선점 및 티켓 생성 시퀀스 다이어그램
 
+</br>
+
+
   ```mermaid
 sequenceDiagram
   actor User as User
@@ -151,8 +154,12 @@ sequenceDiagram
   User ->> Payment: 결제 ready 요청
 ```
 
+</br>
 
 - 티켓 결제 시퀀스 다이어그램
+
+</br>
+
 ```mermaid
 sequenceDiagram
   actor User as User
@@ -183,6 +190,7 @@ sequenceDiagram
 
 ### :memo: 맴버십 구매 Flow
 - 멤버십 선점
+
 ```mermaid
 sequenceDiagram
     actor User
@@ -207,11 +215,14 @@ sequenceDiagram
         Note over User, Payment: 👉 이후 [2단계: 결제 흐름]으로 이어짐
         User ->> Payment: 결제 ready 요청
     end
+
 ```
 
 </br>
 
 - 멤버십 결제
+
+</br>
 
 ```mermaid
 sequenceDiagram
@@ -245,11 +256,14 @@ sequenceDiagram
         Membership ->> Redis: 멤버십 해제 처리
         Payment -->> User: 결제 실패 응답 (시간 초과)
     end
+
 ```
 
 </br>
 
 ### :memo: 원격 줄서기 Flow
+
+</br>
 
 ```mermaid
 sequenceDiagram
