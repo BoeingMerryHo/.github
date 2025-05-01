@@ -55,62 +55,13 @@
 ## :construction_worker: 팀원 역할 분담
 
 | 팀원명 | 포지션 | 담당 |
-| --- | --- | --- |
-| 이지언 | 👑 Leader | ▶ Ticket Service
-- 티켓 생성/관리 로직 구현
-- Kafka 기반의 티켓 생성
-- FeignClient 호출 오류 시, Resilience4J로 Retry를 적용. 최종 실패 시, fallback 메서드를 통해 DLQ로 전송하는 장애 대응 로직
-▶ Maven Repository
-- 각 마이크로 서비스의 횡단 관심사를 공통 모듈로 구성
-- Maven Central Repository에 배포해 공통 라이브러리 구축
-- 오류 수정, 기능 추가 등의 사항을 버전을 통해 관리
-▶ Infra
-- GCP 환경
-- GCP VM 인스턴스에 docker-compose를 통해 서비스 배포 환경 구축
-- Prometheus + Grafana를 통한 서비스 모니터링 시스템 구축
-- GCP Logging 서비스 연동을 통한 로그 중앙 집중화
-- GCP Monitoring 서비스 구축 및 알림 연동 |
-| 김기훈 | 🫅 member | ▶ User Service
-- 회원가입/로그인 등 유저 정보 관리 API 구현
-- BCrypt 알고리즘 적용 비밀번호 암호화
-- 서비스 간 결합도를 낮추기 위해 Observer 패턴 적용하여 후속 처리 분리
-▶ Gateway
-- 필터 기반 api 요청 검증 구현
-- JWT 토큰을 이용한 유저 인증 구현
-- Redis 기반의 JWT 블랙리스트 전략을 도입하여 로그아웃·만료된 토큰 실시간 차단 및 탈취된 토큰 재사용 방지
-- MDC를 활용한 사용자 요청 단위의 로그 트레이싱 구현
-▶ Queue Service
-- Redis ZSet을 이용한 인메모리 기반 데이터 처리로 DB 통신 최소화
-- Redisson의 분산 락으로 동일 자원 접근을 제어하여 race condition 방지
-- Redis 환경 격리 테스트하기 위해 Testcontainers 기반 단위 테스트 환경 구성 |
-| 이예본 | 🫅 member | ▶ Store Service
-- Redis ZSet Delay Queue 기반 줄서기 예약 시스템 구축
-- ZRANGEBYSCORE를 활용한 스케줄러 Polling 성능 최적화
-- 어플리케이션 지표 커스텀 메트릭 수집
-▶ Membership Service
-- Redis Lua Script 기반 멤버십 선점 동시성 제어
-- 시즌이 끝난 멤버십 유효 기간 자동 만료 로직 설계 및 구현
-- 서비스 성능 최적화를 위한 선점 요청 처리 관련 커스텀 메트릭 수집 |
-| 이하은 | 🫅 member | ▶ Payment Service
-- 카카오페이 API를 연동하여 결제 승인 시스템 구축
-- logback을 통한 시스템 로그 및 애플리케이션 지표 수집
-▶ JMeter tester
-- 주요 기능에 대한 테스트 시나리오를 구성하고, 부하 테스트 진행
-- Regular Expression Extractor를 활용해 Response의 필요 데이터를 추출하는 정규식 구성
-- CSV Data Set Config를 활용한 요청 데이터 동적 구성 |
-| 전은배 | 🫅 member | ▶ Seat Service
-- Redisson 활용하여 분산 락 구현
-- Scheduler 를 이용하여 매일 오전 00:30 자동 좌석 생성 구현
-- Scheduler 를 이용하여 평일 오후 18:30, 주말 오후 14:01 자동 좌석 정리 구현
-- 멤버십별 선예매 기능 구현
-- Redisson Batch 기능을 활용하여 네트워크 통신 최적화
-- 좌석 조회 시, Redisson RFuture 를 활용하여 비동기 조회 처리
-- RSet 을 활용하여 블록 내 좌석 정보 저장
-▶ Table Index
-- Match
-- User
-- Ticket
-- Payment |
+|--------|--------|------|
+| **이지언** | 👑 Leader | **▶ Ticket Service**<br>- 티켓 생성/관리 로직 구현<br>- Kafka 기반의 티켓 생성<br>- FeignClient 호출 오류 시 Resilience4J로 Retry 적용. 최종 실패 시 fallback 메서드로 DLQ 전송<br><br>**▶ Maven Repository**<br>- 마이크로서비스의 공통 모듈 구성<br>- Maven Central Repository 배포<br>- 버전 관리로 오류 수정/기능 추가<br><br>**▶ Infra**<br>- GCP 환경에서 docker-compose로 배포<br>- Prometheus + Grafana 모니터링 시스템 구축<br>- GCP Logging으로 로그 중앙화<br>- GCP Monitoring 알림 연동 |
+| **김기훈** | 🫅 Member | **▶ User Service**<br>- 회원가입/로그인 API 구현<br>- BCrypt 기반 비밀번호 암호화<br>- Observer 패턴 적용으로 후속 처리 분리<br><br>**▶ Gateway**<br>- 필터 기반 API 요청 검증<br>- JWT 인증, Redis 블랙리스트 전략 도입<br>- MDC 기반 요청 단위 로그 트레이싱<br><br>**▶ Queue Service**<br>- Redis ZSet 기반 인메모리 데이터 처리<br>- Redisson 분산 락으로 race condition 방지<br>- Testcontainers 기반 단위 테스트 환경 구성 |
+| **이예본** | 🫅 Member | **▶ Store Service**<br>- Redis ZSet Delay Queue 기반 줄서기 예약<br>- ZRANGEBYSCORE를 활용한 Polling 성능 최적화<br>- 커스텀 메트릭 수집<br><br>**▶ Membership Service**<br>- Redis Lua Script로 동시성 제어<br>- 시즌 종료 시 멤버십 자동 만료 로직<br>- 선점 요청 관련 커스텀 메트릭 수집 |
+| **이하은** | 🫅 Member | **▶ Payment Service**<br>- 카카오페이 API 연동<br>- logback 기반 시스템 로그 및 지표 수집<br><br>**▶ JMeter tester**<br>- 부하 테스트 시나리오 구성<br>- 정규식 기반 데이터 추출<br>- CSV Data Set Config로 동적 요청 구성 |
+| **전은배** | 🫅 Member | **▶ Seat Service**<br>- Redisson으로 분산 락 구현<br>- Scheduler로 자동 좌석 생성 및 정리<br>- 멤버십별 선예매 기능 구현<br>- Redisson Batch로 통신 최적화<br>- RFuture로 비동기 좌석 조회<br>- RSet으로 블록 내 좌석 정보 저장<br><br>**▶ Table Index**<br>- Match<br>- User<br>- Ticket<br>- Payment |
+
 
 
 ## :calendar: 개발 기간
@@ -198,8 +149,7 @@ sequenceDiagram
   Note over User, Payment: 👉 이후 [2단계: 결제 흐름]으로 이어짐
   User ->> Payment: 결제 ready 요청
 ```
-</br>
-</br>
+
 
 - 티켓 결제 시퀀스 다이어그램
 ```mermaid
@@ -308,7 +258,7 @@ sequenceDiagram
 
 - 보잉메리호 Readme
     
-    # 홈런티켓 - 경기 관람부터 스토어까지, 야구장을 완성하는 통합 플랫폼
+# 홈런티켓 - 경기 관람부터 스토어까지, 야구장을 완성하는 통합 플랫폼
     
     ```
     ![Image](https://github.com/user-attachments/assets/79debc38-3e56-46f7-b9a8-6b92cd31f57e)
