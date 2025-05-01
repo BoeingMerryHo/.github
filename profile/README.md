@@ -308,7 +308,7 @@ sequenceDiagram
     
     ### 서비스 개요
     
-    UserAdminController는 관리자용 사용자 관리 API를 제공 및 사용자 등록, 조회, 수정, 삭제, 권한 관리, 이메일 인증, 로그인/로그아웃, 토큰 갱신 기능 제공.
+    UserAdminController는 관리자용 사용자 관리 API를 제공 및 사용자 등록, 조회, 수정, 삭제, 권한 관리, 이메일 인증, 로그인/로그아웃, 토큰 갱신 기능 제공
     
     ### 주요 기능
     
@@ -336,7 +336,7 @@ sequenceDiagram
     
     ### 서비스 개요
     
-    UserController는 일반 사용자(비관리자)를 위한 사용자 관리 API를 제공하며, 사용자 등록, 조회, 수정, 탈퇴, 로그인/로그아웃, 이메일 인증, 토큰 갱신 등의 기능을 포함.
+    UserController는 일반 사용자(비관리자)를 위한 사용자 관리 API를 제공하며, 사용자 등록, 조회, 수정, 탈퇴, 로그인/로그아웃, 이메일 인증, 토큰 갱신 등의 기능을 포함
     
     ### 주요 기능
     
@@ -459,7 +459,7 @@ QueueController는 일반 사용자를 위한 대기열 관리 API를 제공 및
 
 ### 서비스 개요
 
-AdminTicketController는 관리자를 위한 티켓 관리 API 및 티켓 조회, 검색, 상태 업데이트, 소프트 삭제 기능 제공.
+AdminTicketController는 관리자를 위한 티켓 관리 API 및 티켓 조회, 검색, 상태 업데이트, 소프트 삭제 기능 제공
 
 ### 주요 기능
 
@@ -472,7 +472,7 @@ AdminTicketController는 관리자를 위한 티켓 관리 API 및 티켓 조회
 
 ### 서비스 개요
 
-TicketController는 일반 사용자를 위한 티켓 조회 API 및 사용자가 자신의 티켓 목록, 특정 티켓 상세 정보, 결제 정보를 조회 기능 제공.
+TicketController는 일반 사용자를 위한 티켓 조회 API 및 사용자가 자신의 티켓 목록, 특정 티켓 상세 정보, 결제 정보를 조회 기능 제공
 
 ### 주요 기능
 
@@ -491,7 +491,7 @@ TicketController는 일반 사용자를 위한 티켓 조회 API 및 사용자�
 
 ### 서비스 개요
 
-StoreAdminController는 관리자 및 매니저를 위한 가게 관리 API 및 가게 생성, 조회, 수정, 삭제, 상태 변경, 대기열 활성화/비활성화 등의 기능 제공.
+StoreAdminController는 관리자 및 매니저를 위한 가게 관리 API 및 가게 생성, 조회, 수정, 삭제, 상태 변경, 대기열 활성화/비활성화 등의 기능 제공
 
 ### 주요 기능
 
@@ -576,7 +576,7 @@ PaymentController는 일반 사용자(NORMAL, SENIOR)를 위한 결제 관리 AP
 
 ### 서비스 개요
 
-PaymentAdminController는 관리자 및 매니저를 위한 결제 관리 API 및 결제 승인, 환불, 티켓/멤버십 결제 취소, 결제 상세 조회 및 검색 기능 제공.
+PaymentAdminController는 관리자 및 매니저를 위한 결제 관리 API 및 결제 승인, 환불, 티켓/멤버십 결제 취소, 결제 상세 조회 및 검색 기능 제공
 
 ### 주요 기능
 
@@ -591,7 +591,7 @@ PaymentAdminController는 관리자 및 매니저를 위한 결제 관리 API �
 
 ### 서비스 개요
 
-PaymentFeignController는 결제 서비스 간 통신을 위한 Feign 클라이언트용 API 제공.
+PaymentFeignController는 결제 서비스 간 통신을 위한 Feign 클라이언트용 API 제공
 
 결제 정보 생성 기능 제공.
 
