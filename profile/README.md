@@ -124,6 +124,7 @@ MVP 개발 (04.03 ~ 04.17 - 2주)
 ## :movie_camera: 기능
 ### :memo: 티켓 예매 Flow
 - 좌석 선점 및 티켓 생성 시퀀스 다이어그램
+
   ```mermaid
 sequenceDiagram
   actor User as User
