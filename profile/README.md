@@ -1,4 +1,4 @@
-# OingLogistics
+# 홈런티켓
 
 ![Image](https://github.com/user-attachments/assets/79debc38-3e56-46f7-b9a8-6b92cd31f57e)
 
