@@ -1,6 +1,6 @@
 # OingLogistics
 
-[커버 이미지]
+![Image](https://github.com/user-attachments/assets/4603ea0e-f28b-4859-800f-984484d22703)
 
 [프로젝트 간단 소개]
 
