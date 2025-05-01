@@ -63,18 +63,18 @@
 
 ## :building_construction: 아키텍처
 
-![Image](https://github.com/user-attachments/assets/fe26d45d-a856-4ee3-a670-9c4f9814ce41)
+![Image]()
 
 ## :memo: ERD
 
-![Image](https://github.com/user-attachments/assets/5d41c648-9bf0-4d0c-8e56-6109679b2122)
+![Image]()
 
 
 ## :movie_camera: 기능
 
 ### :memo: 시퀀스 다이어그램
 
-![Image](https://github.com/user-attachments/assets/faeb0ffd-998b-4249-947a-7607930f91f2)
+![Image]()
 
 ### :desktop_computer: 프로젝트 주요 기능
 
@@ -255,59 +255,25 @@
 
 1. [Multi‐Stage Build 를 적용한 도커 이미지 경량화](https://github.com/5ingMaryho/OingLogistics/wiki/%F0%9F%90%B3Multi%E2%80%90Stage-Build-%EB%A5%BC-%EC%A0%81%EC%9A%A9%ED%95%9C-%EB%8F%84%EC%BB%A4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EA%B2%BD%EB%9F%89%ED%99%94)
 
-2. [Interceptor와 Annotation을 활용한 각 서비스 API 별 권한 검증](https://github.com/5ingMaryho/OingLogistics/wiki/%F0%9F%91%A5Interceptor%EC%99%80-Annotation%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B0%81-%EC%84%9C%EB%B9%84%EC%8A%A4-API-%EB%B3%84-%EA%B6%8C%ED%95%9C-%EA%B2%80%EC%A6%9D)
-
-3. [멀티 모듈 구조 적용](https://github.com/5ingMaryho/OingLogistics/wiki/%F0%9F%A7%A9%EB%A9%80%ED%8B%B0-%EB%AA%A8%EB%93%88-%EA%B5%AC%EC%A1%B0-%EC%A0%81%EC%9A%A9)
-
-4. [동시성 제어와 이벤트 리스너 트랜잭션 관리](https://github.com/5ingMaryho/OingLogistics/wiki/%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%A0%9C%EC%96%B4%EC%99%80-%EB%B6%84%EC%82%B0%EB%9D%BD,-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%B6%84%EB%A6%AC)
-
 ## :package: 프로젝트 구동 방법
 
 ### 1. Project 소스 코드를 Clone 합니다.
 
 ```
-git clone https://github.com/5ingMaryho/OingLogistics.git
+
 ```
 
 ### 2. /OingLogistics/eureka-service/src/main/resources 경로로 이동 후, application.yml 파일을 생성합니다.
 
 ```
-spring:
-  config:
-    import:
-      - classpath:./application-prod.yml
-  profiles:
-    group:
-      prod: prod
-    active: prod
-  application:
-    name: eureka-service
 
----
-spring:
-  config.activate.on-profile: prod
 
 ```
 
 ### 3. /OingLogistics/eureka-service/src/main/resources 경로로 이동 후, application-prod.yml 파일을 생성합니다.
 
 ```
-server:
-  port: 8761
 
-spring:
-  application:
-    name: eureka-service
-
-
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: eureka-service
 ```
 
 
@@ -316,36 +282,13 @@ eureka:
 + key는 현재 비공개입니다. 필요 시 제공하겠습니다.
 
 ```
-server:
-  port: 8888
 
-spring:
-  application:
-    name: config-service
-
-  profiles:
-    active: git
-
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/5ingMaryho/Config.git
-          clone-on-start: true
-          username: {owner_username}
-          password: {owner_password}
 ```
 
 ### 5. /OingLogistics/gateway-service/src/main/resources 경로로 이동 후, application.yml 파일을 생성합니다.
 
 ```
-spring:
-  config:
-    import: "optional:configserver:http://localhost:8888/"
-  profiles:
-    active: prod
-  application:
-    name: gateway-service
+
 ```
 
 ### 6. /OingLogistics 경로에서 docker-compose.yml 파일을 실행합니다.
@@ -360,14 +303,11 @@ docker compose up -d
 ## :memo: 프로젝트 회고
 
 ### 프로젝트 개선점 및 고도화 계획
-- 주문 - 상품 동시성 제어
-- 분산 환경에서의 데이터 정합성과 부하를 최소화하는 방안을 탐색
+- 
 
 ### 협업 시 우리 팀이 잘한 점
-- 문제나 궁금한 점을 바로 공유하고 함께 해결 방법을 고민하며 함께 성장하는 팀 분위기를 만들었습니다.
-- PR 규칙을 정하고 알고 있는 내용, 배운 내용, 고민사항, 설계를 적극적으로 공유하여 팀 전체의 개발 역량을 향상시켰습니다.
+- 
 
 ### 협업 시 아쉽거나 부족했던 부분들
-- 트러블 슈팅 기록과 오류 정리를 체계화해 유사한 문제가 발생했을 때 원인 파악과 해결 시간을 단축하고자 합니다.
-- API 구현 및 새로운 기술에 대한 러닝커브로 예상보다 많은 시간이 소요되어 테스트 코드 작성이나 개발 진행이 지연되었습니다. 깃허브 이슈 관리를 통해, 이런 상황을 최소화하고자 노력했습니다.
+- 
 
