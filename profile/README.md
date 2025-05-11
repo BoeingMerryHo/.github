@@ -297,6 +297,52 @@ sequenceDiagram
 
 ```
 
+</br>
+
+### :memo: 결제 Flow
+
+</br>
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant Payment
+    participant Cafe as KakaoPay
+    participant Ticket
+    participant Seat
+    participant Redis as Seat:Redis
+
+    User ->> Payment: 결제 ready 요청
+
+    alt 8분 내 요청
+        Payment -->> User: 결제 ready 성공
+        User ->> Payment: 결제 승인 요청
+
+        alt 결제 승인 성공
+            Payment ->> Cafe: 결제 승인 요청
+            Cafe -->> Payment: 승인 성공
+            Payment ->> Ticket: 결제 성공 알림 (상태: 결제 완료)
+            Ticket ->> Seat: 좌석 선점 해제 요청
+            Seat ->> Redis: 좌석 해제 처리
+            Payment ->> User: 결제 완료 응답
+        else 결제 승인 실패
+            Cafe -->> Payment: 결제 실패 알림
+            Payment ->> Ticket: 결제 실패 알림 (상태: 취소)
+            Ticket ->> Seat: 좌석 선점 해제 요청
+            Seat ->> Redis: 좌석 해제 처리
+            Payment ->> User: 결제 실패 응답
+        end
+
+    else 8분 초과
+        Payment ->> Ticket: 티켓 만료 처리 (상태: 만료)
+        Ticket ->> Seat: 좌석 선점 해제 요청
+        Seat ->> Redis: 좌석 해제 처리
+        Payment -->> User: 결제 실패 응답 (시간 초과)
+    end
+
+```
+
+
 ### :desktop_computer: 프로젝트 주요 기능
 
 <details>
